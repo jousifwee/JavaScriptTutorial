@@ -13,7 +13,7 @@ cd materialBeisp
 ng add @angular/material
 
 # Oder mit spezifischen Optionen
-ng add @angular/material --theme=purple-green --typography=true --animations=enabled
+ng add @angular/material --theme=magenta-violet --typography=true --animations=enabled
 
 
 
