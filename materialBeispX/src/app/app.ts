@@ -1,13 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Header } from './comp/header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('materialBeisp');
+  protected readonly title = signal('materialBeispX');
 }
