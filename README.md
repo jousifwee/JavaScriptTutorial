@@ -1,6 +1,13 @@
+# Vorbereitung 
 npm install -g @angular/cli@latest
 
-# Workshop
+# Workshop 29.08.2025
+
+* Angular Komponentenerzeugung 
+* Routing
+* Menü Oben
+* Material https://material.angular.dev/
+* ein bisschen Signal. Formular und Javascript
 
 ng new materialBeispX --style=scss --routing --zoneless=false --ssr=false
 

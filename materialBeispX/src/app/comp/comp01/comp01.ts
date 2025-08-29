@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -23,24 +23,24 @@ import { FormsModule } from '@angular/forms';
   styles: `input { margin: 0 5px 10px 0; width: 100px; }`
 })
 export class Comp01 {
-  operand1 = signal<number>(0);
-  operand2 = signal<number>(0);
-  ergebnis = signal<number | string>('');
+  operand1: number = 0;
+  operand2: number = 0;
+  ergebnis: number | string = '';
 
   plus() {
-    this.ergebnis.set(this.operand1() + this.operand2());
+    this.ergebnis = this.operand1 + this.operand2;
   }
   minus() {
-    this.ergebnis.set(this.operand1() - this.operand2());
+    this.ergebnis = this.operand1 - this.operand2;
   }
   mal() {
-    this.ergebnis.set(this.operand1() * this.operand2());
+    this.ergebnis = this.operand1 * this.operand2;
   }
   durch() {
-    if (this.operand2() === 0) {
-      this.ergebnis.set('Division durch 0!');
+    if (this.operand2 === 0) {
+      this.ergebnis = 'Division durch 0!';
     } else {
-      this.ergebnis.set(this.operand1() / this.operand2());
+      this.ergebnis = this.operand1 / this.operand2;
     }
   }
 }
