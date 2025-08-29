@@ -228,7 +228,7 @@ import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-comp01',
+  selector: 'app-comp02',
   standalone: true,
   imports: [FormsModule],
   template: `
@@ -248,26 +248,20 @@ import { FormsModule } from '@angular/forms';
   `,
   styles: `input { margin: 0 5px 10px 0; width: 100px; }`
 })
-export class Comp01 {
+export class Comp02 {
   operand1 = signal<number>(0);
   operand2 = signal<number>(0);
   ergebnis = signal<number | string>('');
 
-  plus() {
-    this.ergebnis.set(this.operand1() + this.operand2());
-  }
-  minus() {
-    this.ergebnis.set(this.operand1() - this.operand2());
-  }
-  mal() {
-    this.ergebnis.set(this.operand1() * this.operand2());
-  }
-  durch() {
+  plus = () => this.ergebnis.set(this.operand1() + this.operand2());
+  minus = () => this.ergebnis.set(this.operand1() - this.operand2());
+  mal = () => this.ergebnis.set(this.operand1() * this.operand2());
+  durch = () => {
     if (this.operand2() === 0) {
       this.ergebnis.set('Division durch 0!');
     } else {
       this.ergebnis.set(this.operand1() / this.operand2());
     }
-  }
+  };
 }
 ```
