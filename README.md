@@ -1,58 +1,24 @@
 npm install -g @angular/cli@latest
 
-REM Ng new NgUeb01
-REM ng g application js001
-#npm install tailwindcss @tailwindcss/postcss postcss --force
-
-
-## Material
-ng new materialBeisp --style=scss --routing --zoneless=false --ssr=false
-
-# Angular Material installieren
-cd materialBeisp
-ng add @angular/material
-
-# Oder mit spezifischen Optionen
-ng add @angular/material --theme=magenta-violet --typography=true --animations=enabled
-
-
-ng g c comp/comp01 --inline-template --inline-style
-ng g c comp/comp02 --inline-template --inline-style
-ng g c comp/header --inline-template --inline-style
-
-
-https://tailwindcss.com/docs/installation/framework-guides/angular
-
-
-
-https://www.totaltypescript.com/vscode-extension
-
-
-https://thispersonnotexist.org/
-
-
-#Workshop
+# Workshop
 
 ng new materialBeispX --style=scss --routing --zoneless=false --ssr=false
 
-# Angular Material installieren
+## Angular Material installieren - mit spezifischen Optionen
 cd materialBeispX
-
-# mit spezifischen Optionen
 ng add @angular/material --theme=magenta-violet --typography=true --animations=enabled
 
-# 
+## Komponenten erstellen
+ng g c comp/header --inline-template --inline-style
 ng g c comp/comp01 --inline-template --inline-style
 ng g c comp/comp02 --inline-template --inline-style
-ng g c comp/header --inline-template --inline-style
 
 ng serve --open
 
 
-1. Anpassungen
+## Anpassungen
 
-1.1 das Routing einrichten
-###in materialBeispX/src/app/app.routes.ts
+### 1.1 das Routing einrichten  in materialBeispX/src/app/app.routes.ts
 
 ``` typescript
 import { Comp01 } from './comp/comp01/comp01';
@@ -65,8 +31,8 @@ export const routes: Routes = [
 ];
 ```
 
-1.2 das menü immer oben anzeigen
-in app.html
+### 1.2 das Menü immer oben anzeigen
+#### in app.html
 ``` typescript
 <app-header></app-header>
 <router-outlet />
@@ -74,7 +40,7 @@ in app.html
 
 ✘ [ERROR] NG8001: 'app-header' is not a known element:
 
-in app.ts
+#### in app.ts
 ``` typescript
 // neu: 
 import { Header } from "./comp/header/header";
@@ -83,7 +49,7 @@ import { Header } from "./comp/header/header";
 imports: [RouterOutlet, Header],
 ```
 
-in header.ts das inline template anpassen
+#### in header.ts das inline template anpassen
 ``` typescript
   template: `
     <p>
@@ -96,7 +62,7 @@ in header.ts das inline template anpassen
   `,
   ```
 
-Links noch ohne Funktion -> import RouterLink (an 2 STellen)
+#### Links noch ohne Funktion -> import RouterLink (an 2 Stellen)
 ``` typescript
 import { RouterLink } from '@angular/router';
   imports: [RouterLink],
@@ -221,6 +187,7 @@ export class Comp01 {
 }
 ```
 
+## Komponente Comp02
 
 ```typescript mit Arrow
 
@@ -265,3 +232,64 @@ export class Comp02 {
   };
 }
 ```
+
+
+# Wie gehts weiter
+
+individuelles bereitstellen von Komponenten und ggf. übergreifenden Funktionalitäten
+
+Eure Ideen sind gefragt
+
+1. EKP Nummerngenerator + Validator
+2. Base 64 encode + decode
+3. AES Key Generation + Encrypt + Decrypt
+ interessant: 2-3 Cryptovarianten
+
+| Use Case                                        | Empfehlung                                     | Begründung                             |
+| ----------------------------------------------- | ---------------------------------------------- | -------------------------------------- |
+| Lernzwecke / Legacy-Code                        | **CryptoJS (nur Demo!)**                       | Einfach, aber unsicher                 |
+| Webanwendung mit moderner Browserunterstützung  | **Web Crypto API**                             | Eingebaut, sicher, performant          |
+| Sichere App mit wenig Krypto-Erfahrung          | **libsodium.js**                               | Default-sicher, einfach, Battle-tested |
+| Fullstack-Integration (z. B. Angular + Node.js) | **libsodium.js** oder WebCrypto + node\:crypto | kompatibel mit beiden Welten           |
+
+4. JWT Tokenanzeige + Management
+5. JWE Ver + Entschlüsselung
+6. Postident Parameter Encrypt - decrypt
+7. Webservice - Aufrufer
+
+
+
+
+
+# Bckup
+
+REM Ng new NgUeb01
+REM ng g application js001
+#npm install tailwindcss @tailwindcss/postcss postcss --force
+
+
+## Material
+ng new materialBeisp --style=scss --routing --zoneless=false --ssr=false
+
+# Angular Material installieren
+cd materialBeisp
+ng add @angular/material
+
+# Oder mit spezifischen Optionen
+ng add @angular/material --theme=magenta-violet --typography=true --animations=enabled
+
+
+ng g c comp/comp01 --inline-template --inline-style
+ng g c comp/comp02 --inline-template --inline-style
+ng g c comp/header --inline-template --inline-style
+
+
+https://tailwindcss.com/docs/installation/framework-guides/angular
+
+
+
+https://www.totaltypescript.com/vscode-extension
+
+
+https://thispersonnotexist.org/
+
