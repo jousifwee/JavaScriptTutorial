@@ -66,3 +66,112 @@ export const routes: Routes = [
 ```
 
 1.2 das menü immer oben anzeigen
+in app.html
+``` typescript
+<app-header></app-header>
+<router-outlet />
+```
+
+✘ [ERROR] NG8001: 'app-header' is not a known element:
+
+in app.ts
+``` typescript
+// neu: 
+import { Header } from "./comp/header/header";
+
+//erweitert:
+imports: [RouterOutlet, Header],
+```
+
+in header.ts das inline template anpassen
+``` typescript
+  template: `
+    <p>
+      header works!
+    </p>
+  `,
+  // nach 
+  template: `  <a routerLink="/comp01">Comp01</a> <span> | </span><a routerLink="/comp02">Comp02</a>
+    <span> | </span><a routerLink="/">Home</a>
+  `,
+  ```
+
+Links noch ohne Funktion -> import RouterLink (an 2 STellen)
+``` typescript
+import { RouterLink } from '@angular/router';
+  imports: [RouterLink],
+```
+
+## MATERIAL Menü
+ a) mat-menu (ein Flipout Menu - muss aktiviert werden im code)
+ b) mat-nav-list (von oben nach unten)
+ c) mat-toolbar (horizontal)
+
+ ``` typescript
+// navlist von oben nach unten
+
+ import { MatListModule} from '@angular/material/list';
+  imports: [..., MatListModule],
+  template: ` 
+<mat-nav-list>
+  <button mat-list-item>Profile</button>
+  <button mat-list-item>Account</button>
+</mat-nav-list>
+
+// mat-toolbar horizontal
+
+<mat-toolbar color="primary">
+  <button mat-button>Home</button>
+  <button mat-button>Comp01</button>
+  <button mat-button>Comp02</button>
+</mat-toolbar>
+ ```
+
+## Aktiven Link hervorheben
+
+``` typescript
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { MatListModule} from '@angular/material/list';
+...
+imports: [RouterLink,RouterLinkActive, MatListModule, MatToolbarModule],
+
+...
+  <button mat-button routerLink="/comp01" routerLinkActive="active-link">Comp01</button>
+  <button mat-button routerLink="/comp02" routerLinkActive="active-link">Comp02</button>
+</mat-toolbar>
+  `,
+  styles: `
+      .active-link {
+      background: #fff;
+      color: #1976d2;
+      font-weight: bold;
+    }`
+})
+```
+
+## Komponente Comp01
+
+``` typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-comp01',
+  imports: [],
+  template: `
+    <p>
+      comp01 works!
+    </p>
+  `,
+  styles: ``
+})
+export class Comp01 {
+
+}
+```
+### wir wollen ein kleines typescript beispiel für eine arrow function
+
+
+
+``` typescript
+
+```
